@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -15,13 +15,11 @@
         <div class="container">
             <h1>Add new Actor</h1>
             <a class="btn btn-secondary my-2" th:href="@{/}">BACK</a>
-            <form class="form-group p5" th:action="@{/submit}" th:object="${actor}" method="post">
+            <form class="form-group p5" th:action="@{/update}" th:object="${actor}" method="post">
                 <input type="hidden" th:field="*{id}"/>
                 <label for="firstName">First name</label>
                 <input type="text" class="form-control" th:field="*{firstName}" id="firstName"
                        placeholder="Enter name"/>
-                <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">name error</span>
-                </p>
                 <label for="lastName">Last name</label>
                 <input type="text" class="form-control" th:field="*{lastName}" id="lastName"
                        placeholder="Enter lastname"/>
@@ -37,7 +35,6 @@
                 <!--                </div>-->
                 <div>
                     <select th:type="text" th:field="*{gender}">
-                        <option value=""></option>
                         <option th:each="gen : ${genderList}"
                                 th:text="${gen.gender}"
                                 th:value="${gen}"></option>

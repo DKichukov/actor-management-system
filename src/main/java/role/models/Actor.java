@@ -3,7 +3,6 @@ package role.models;
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -24,7 +23,7 @@ public class Actor {
     @Max(100)
     @Column(length = 3)
     private int age;
-    @NotBlank
+
     private Gender gender;
 
     public Integer getId() {

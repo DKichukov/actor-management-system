@@ -1,7 +1,7 @@
 package role.models;
 
 public enum Gender {
-    MAIL ("M"),
+    MALE ("M"),
     FEMALE ("F");
     private final String gender;
 

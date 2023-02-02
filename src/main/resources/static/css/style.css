@@ -1,5 +1,6 @@
 .mynav{
     height: fit-content;
-    width: fit-content;
-    background-color: cadetblue;
+    width:auto;
+    background-color: bisque;
+    align-items: center;
 }
