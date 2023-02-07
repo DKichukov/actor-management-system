@@ -1,0 +1,14 @@
+html, body {
+    background-image: linear-gradient(to left top, bisque, darkgray, burlywood);
+    height: 100%;
+    width: 100%
+}
+
+.table {
+ table-layout: fixed;
+    border-color: indigo;
+}
+
+td, th {
+    text-align: center;
+}
