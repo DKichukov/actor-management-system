@@ -22,24 +22,24 @@ public class ActorController {
 @GetMapping("/")
     private String getAllActors(Model model) {
         model.addAttribute("actors", repo.findAll());
-        return "index";
+        return "actors/index";
     }
 
     @GetMapping("/create")
     private String createActor(Model model) {
         model.addAttribute("actor", new Actor());
         model.addAttribute("genderList", Gender.values());
-        return "/create";
+        return "actors/create";
     }
 
     @PostMapping("/submit")
-    private String addActor(@Valid Actor actor, BindingResult bindingResult, Model model) {
+    private ModelAndView addActor(@Valid Actor actor, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             model.addAttribute("genderList", Gender.values());
-            return "/create";
+            return new ModelAndView("actors/create");
         } else {
             repo.save(actor);
-            return "redirect:/";
+            return new ModelAndView("redirect:/");
         }
     }
 
@@ -47,13 +47,13 @@ public class ActorController {
     private ModelAndView editActor(@PathVariable(name = "id") Integer id, Model model) {
         model.addAttribute("actor", repo.findById(id));
         model.addAttribute("genderList", Gender.values());
-        return new ModelAndView("/edit");
+        return new ModelAndView("actors/edit");
     }
     @PostMapping("/update")
     private ModelAndView updateActor(@Valid Actor actor,BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             model.addAttribute("genderList", Gender.values());
-            return new ModelAndView("/edit");
+            return new ModelAndView("actors/index");
         } else {
             repo.save(actor);
             return new ModelAndView("redirect:/");

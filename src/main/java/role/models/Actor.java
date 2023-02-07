@@ -23,7 +23,6 @@ public class Actor {
     @Max(100)
     @Column(length = 3)
     private int age;
-
     private Gender gender;
 
     public Integer getId() {
